@@ -33,18 +33,16 @@ stages:
       - job: perf_API_Tests
         timeoutInMinutes: 360
         displayName: Performance API Tests
-        steps:
-            - script: |
-                sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
-                echo "deb https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
-                sudo apt-get update
-                sudo apt-get install k6
-              displayName: Install k6 tool
+  - script: |
+      sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
+      echo "deb https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
+      sudo apt-get update
+      sudo apt-get install k6
+      displayName: Install k6 tool
+  - script: |
+      k6 version
+      displayName: Check if K6 is installed
 
-            - script: |
-                k6 version
-              displayName: Check if K6 is installed
-
-            parameters:
-              script: bash scripts/perfAPICmdString.sh $(System.StageDisplayName) ${{parameters.project}} ${{parameters.apiname}} ${{parameters.datasource}} ${{parameters.users}} ${{parameters.durations}}
-              displayName: Executing Performance test for CMPortal APIs in Azure Pipelines
+    parameters:
+      script: bash scripts/perfAPICmdString.sh $(System.StageDisplayName) ${{parameters.project}} ${{parameters.apiname}} ${{parameters.datasource}} ${{parameters.users}} ${{parameters.durations}}
+      displayName: Executing Performance test for CMPortal APIs in Azure Pipelines
