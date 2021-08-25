@@ -13,15 +13,19 @@ IFS=',' read -ra API_FILES <<<"$APINAME"
 #####################################################################################
 ##                                K6 installation                                  ##
 #####################################################################################
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
+a='sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69'
+$a
 echo "deb https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
 echo "Updating ubuntu to get upto date.."
-sudo apt-get update    
+b='sudo apt-get update'
+$b
 echo "Installation of K6 starts in Ubuntu.."
-sudo apt-get install k6
+c='sudo apt-get install k6'
+$c
 echo "Installation of K6 done in Ubuntu.."      
 echo "Validating of K6 version installed in Ubuntu.."
-k6 version
+d='k6 version'
+$d
 #####################################################################################
 ##                                 EXECUTE TESTS                                   ##
 #####################################################################################
