@@ -19,11 +19,6 @@ parameters:
     type: string
     default: 'ubuntu-latest'
 
-variables:
-  - group: Shared
-  - group: Automation_Variables
-  - group: CCE_Automation_Variables
-
 stages:
   - stage: ${{parameters.stage}}
     pool:
