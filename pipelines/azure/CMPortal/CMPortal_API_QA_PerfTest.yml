@@ -26,4 +26,4 @@ extends:
     apiname: CMVCGetDictionary
     datasource: ContentTest
     users: 1
-    durations: 5m
+    durations: 60s
