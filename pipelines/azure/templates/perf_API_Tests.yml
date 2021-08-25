@@ -34,7 +34,7 @@ stages:
         timeoutInMinutes: 360
         displayName: Performance API Tests
         steps:
-            - parameters:
-                script: bash scripts/perfAPICmdString.sh $(System.StageDisplayName) ${{parameters.project}} ${{parameters.apiname}} ${{parameters.datasource}} ${{parameters.users}} ${{parameters.durations}}
-                displayName: Executing Performance test for CMPortal APIs in Azure Pipelines
+          parameters:
+            script: bash scripts/perfAPICmdString.sh $(System.StageDisplayName) ${{parameters.project}} ${{parameters.apiname}} ${{parameters.datasource}} ${{parameters.users}} ${{parameters.durations}}
+            displayName: Executing Performance test for CMPortal APIs in Azure Pipelines
 
