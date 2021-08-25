@@ -1,0 +1,29 @@
+# team_name = 'shared_services/AutoTest/ContentServices'
+# allure_path = 'test-report/allure-results'
+# slack_channel = 'cdls-pt-ssvc-sqd-content-testreport:0.1'
+# schedule = 'H 11 * * *' test
+
+trigger:
+  branches:
+    include:
+    - master
+  paths:
+    include: 
+     - pipelines/azure/CMPortal/CMPortal_API_QA_Perf_Test.yml
+pr:
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - pipelines/azure/CMPortal/CMPortal_API_QA_Perf_Test.yml
+
+extends: 
+  template: ../templates/perf_API_Tests.yml
+  parameters:
+    stage: QA
+    project: CMPortal
+    apiname: CMVCGetDictionary
+    datasource: ContentTest
+    users: 1
+    durations: 5m
