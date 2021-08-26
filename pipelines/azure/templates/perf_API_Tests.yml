@@ -7,8 +7,6 @@ parameters:
     type: string
   - name: 'datasource'
     type: string
-  - name: 'duration'
-    type: string
   - name: poolName
     type: string
     default: 'Azure Pipelines'
@@ -39,4 +37,4 @@ stages:
             
           - template: executeTest.yml
             parameters:
-              script: bash scripts/perfAPICmdString.sh $(System.StageDisplayName) ${{parameters.project}} ${{parameters.apiname}} ${{parameters.datasource}} ${{parameters.duration}}
+              script: bash scripts/perfAPICmdString.sh $(System.StageDisplayName) ${{parameters.project}} ${{parameters.apiname}} ${{parameters.datasource}}
