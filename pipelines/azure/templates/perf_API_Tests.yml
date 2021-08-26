@@ -8,10 +8,11 @@ parameters:
   - name: 'datasource'
     type: string
   - name: 'users'
-    type: string
+    type: number
+    default: 1
   - name: 'durations'
     type: string
-    default: ''
+    default: '10s'
   - name: poolName
     type: string
     default: 'Azure Pipelines'
@@ -27,8 +28,20 @@ stages:
     jobs:
       - job: perf_API_Tests
         timeoutInMinutes: 360
-        displayName: Performance API Tests
+        displayName: Perform API Tests
         steps:
-          - script: bash scripts/perfAPICmdString.sh $(System.StageDisplayName) ${{parameters.project}} ${{parameters.apiname}} ${{parameters.datasource}} ${{parameters.users}} ${{parameters.durations}}
-            displayName: Executing Performance test for CMPortal APIs in Azure Pipelines
+          - script: |
+              sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
+              echo "deb https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
+              sudo apt-get update
+              sudo apt-get install k6
+            displayName: Install k6 tool
+
+          - script: |
+              k6 version
+            displayName: Checking K6 Version
+
+          parameters:
+            script: bash scripts/perfAPICmdString.sh $(System.StageDisplayName) ${{parameters.project}} ${{parameters.apiname}} ${{parameters.datasource}} ${{parameters.users}} ${{parameters.durations}}
+            displayName: Executing Perf Test
 
