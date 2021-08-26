@@ -41,4 +41,4 @@ stages:
             
           - template: executeTest.yml
             parameters:
-              script: bash scripts/perfAPICmdString.sh $(System.StageDisplayName) ${{parameters.project}} ${{parameters.apiname}} ${strconv.ParseInt{parameters.datasource}} ${{parameters.users}} ${{parameters.duration}}
+              script: bash scripts/perfAPICmdString.sh $(System.StageDisplayName) ${{parameters.project}} ${{parameters.apiname}} ${{parameters.datasource}} ${strconv.ParseInt{parameters.users}} ${{parameters.duration}}
