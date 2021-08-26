@@ -4,7 +4,7 @@ PROJECT=$2
 APINAME=$3
 DATA=$4
 #USERS=$5
-DURATION=$5
+#DURATION=$5
 #####################################################################################
 ##                                 API FILE SELECTION                              ##
 #####################################################################################
@@ -18,7 +18,7 @@ IFS=',' read -ra API_FILES <<<"$APINAME"
 # $k6_test
 echo "Performance testing is started.."
 #for apiName in "${API_FILES[@]}"; do
-    k6_test='k6 run -e ENV='$ENV' -e Project='$PROJECT' -e APINAME='$apiName' -e DATA='$DATA' --duration='$DURATION' ./scripts/perfAPITestScript.js'
+    k6_test='k6 run -e ENV='$ENV' -e Project='$PROJECT' -e APINAME='$apiName' -e DATA='$DATA' ./scripts/perfAPITestScript.js'
     $k6_test
 #    sleep 5
 #done
