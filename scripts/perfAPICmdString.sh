@@ -18,7 +18,7 @@ IFS=',' read -ra API_FILES <<<"$APINAME"
 # $k6_test
 echo "Performance testing is started.."
 #for apiName in "${API_FILES[@]}"; do
-    k6_test='k6 run -e ENV='$ENV' -e Project='$PROJECT' -e APINAME='$apiName' -e DATA='$DATA' --vus '$USERS' --durations '$DURATION' ./scripts/perfAPITestScript.js'
+    k6_test='k6 run -e ENV='$ENV' -e Project='$PROJECT' -e APINAME='$apiName' -e DATA='$DATA' --vus='$USERS' --duration='$DURATION' ./scripts/perfAPITestScript.js'
     $k6_test
 #    sleep 5
 #done
