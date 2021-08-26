@@ -9,10 +9,8 @@ parameters:
     type: string
   - name: 'users'
     type: string
-    default: 1
   - name: 'durations'
     type: string
-    default: '10s'
   - name: poolName
     type: string
     default: 'Azure Pipelines'
