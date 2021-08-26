@@ -18,7 +18,7 @@ IFS=',' read -ra API_FILES <<<"$APINAME"
 # $k6_test
 echo "Performance testing is started.."
 echo "Present Working Directory is " $PWD
-a='ls -l'
+a='ls'
 echo ${a}
 ${a}
 #for apiName in "${API_FILES[@]}"; do
