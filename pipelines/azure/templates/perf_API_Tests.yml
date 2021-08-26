@@ -9,7 +9,7 @@ parameters:
     type: string
   - name: 'users'
     type: string
-  - name: 'durations'
+  - name: 'duration'
     type: string
   - name: poolName
     type: string
