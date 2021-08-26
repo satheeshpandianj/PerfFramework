@@ -9,6 +9,7 @@ parameters:
     type: string
   - name: 'users'
     type: number
+    default: '1'
   - name: 'duration'
     type: string
   - name: poolName
@@ -41,4 +42,4 @@ stages:
             
           - template: executeTest.yml
             parameters:
-              script: bash scripts/perfAPICmdString.sh $(System.StageDisplayName) ${{parameters.project}} ${{parameters.apiname}} ${{parameters.datasource}} ${strconv.ParseInt{parameters.users}} ${{parameters.duration}}
+              script: bash scripts/perfAPICmdString.sh $(System.StageDisplayName) ${{parameters.project}} ${{parameters.apiname}} ${{parameters.datasource}} ${{parameters.users}} ${{parameters.duration}}
