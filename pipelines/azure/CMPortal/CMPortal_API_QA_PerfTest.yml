@@ -69,5 +69,5 @@ stages:
           echo $(src_data_source)
           echo $(src_users)
           echo $(src_test_duration)
-          echo '$(Build.SourcesDirectory)/$(file_name)'
-          bash perfAPICmdString.sh $(src_env) $(src_project) $(src_api_name) $(file_name)
+          echo '$(Build.SourcesDirectory)'
+          bash $(Build.SourcesDirectory)/scripts/perfAPICmdString.sh $(src_env) $(src_project) $(src_api_name) $(Build.SourcesDirectory)/scripts/perfAPITestScript.js
