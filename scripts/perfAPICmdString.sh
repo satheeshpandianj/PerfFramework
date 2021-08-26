@@ -19,7 +19,8 @@ IFS=',' read -ra API_FILES <<<"$APINAME"
 echo "Performance testing is started.."
 echo "Present Working Directory is " $PWD
 a='ls -l'
-echo ${a[*]}
+echo ${a}
+${a}
 #for apiName in "${API_FILES[@]}"; do
     #k6_test='k6 run -e ENV='$ENV' -e Project='$PROJECT' -e APINAME='$apiName' -e DATA='$DATA'  -e USERS='$USERS' -e TESTINGTIME='$DURATION' scripts/perfAPITestScript.js'
     #$k6_test
