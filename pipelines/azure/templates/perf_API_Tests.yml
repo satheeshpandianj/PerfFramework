@@ -25,9 +25,9 @@ stages:
     pool:
       name: ${{parameters.poolName}}
       vmImage: ${{parameters.vmImage}}
+
     jobs:
-      - job: perf_API_Tests
-        timeoutInMinutes: 360
+        job: perf_API_Tests
         displayName: Perform API Tests
         steps:
           - script: |
@@ -41,7 +41,6 @@ stages:
               k6 version
             displayName: Checking K6 Version
 
-          parameters:
-            script: bash scripts/perfAPICmdString.sh $(System.StageDisplayName) ${{parameters.project}} ${{parameters.apiname}} ${{parameters.datasource}} ${{parameters.users}} ${{parameters.durations}}
-            displayName: Executing Perf Test
-
+            parameters:
+              script: bash scripts/perfAPICmdString.sh $(System.StageDisplayName) ${{parameters.project}} ${{parameters.apiname}} ${{parameters.datasource}} ${{parameters.users}} ${{parameters.durations}}
+              displayName: Executing Perf Test
