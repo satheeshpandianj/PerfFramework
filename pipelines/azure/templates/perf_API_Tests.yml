@@ -8,7 +8,7 @@ parameters:
   - name: 'datasource'
     type: string
   - name: 'users'
-    type: decimal
+    type: number
   - name: 'durations'
     type: string
   - name: poolName
