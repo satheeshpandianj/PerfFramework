@@ -27,7 +27,7 @@ stages:
       vmImage: ${{parameters.vmImage}}
 
     jobs:
-        job: perf_API_Tests
+      - job: perf_API_Tests
         displayName: Perform API Tests
         steps:
           - script: |
