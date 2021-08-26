@@ -40,7 +40,8 @@ stages:
           - script: |
               k6 version
             displayName: Checking K6 Version
-
+            
+          - template: executeTest.yml
             parameters:
               script: bash scripts/perfAPICmdString.sh $(System.StageDisplayName) ${{parameters.project}} ${{parameters.apiname}} ${{parameters.datasource}} ${{parameters.users}} ${{parameters.durations}}
               displayName: Executing Perf Test
