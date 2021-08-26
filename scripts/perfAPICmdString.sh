@@ -17,7 +17,7 @@ IFS=',' read -ra API_FILES <<<"$APINAME"
 # k6_test='k6 run -e ENV='$ENV' -e Project='$PROJECT' -e APINAME='$APINAME' -e DATA='$DATA' --vus '$USERS' --iterations '$DURATION' --out influxdb=http://104.40.213.24:8086/'$DBNAME' ./scripts/perfAPITestScript.js'
 # $k6_test
 #for apiName in "${API_FILES[@]}"; do
-    k6_test='k6 run -e ENV='$ENV' -e PROJECT='$PROJECT' -e APINAME='$APINAME' -e DATA='$DATA'  -e USERS='$USERS' -e TESTINGTIME='$DURATION' ./perfAPITestScript.js '
+    k6_test='k6 run -e ENV='$ENV' -e PROJECT='$PROJECT' -e APINAME='$APINAME' -e DATA='$DATA'  -e USERS='$USERS' -e TESTINGTIME='$DURATION' ./perfAPITestScript.js/'
     echo "$k6_test"
     $k6_test
    #sleep 5
