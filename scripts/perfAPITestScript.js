@@ -9,6 +9,11 @@ const Request = require('../projects/PerfTest/' + __ENV.Project + '/TestScripts/
 
 // console.log(`API Names are ${__ENV.APINAME}`);
 
+export let options = {
+    vus: __ENV.USERS,
+    duration: __ENV.TESTINGTIME,
+};
+
 export default function () {
     Request.frameAPIRequest(__ENV.APINAME);
 }
