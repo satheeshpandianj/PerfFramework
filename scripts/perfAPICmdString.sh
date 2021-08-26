@@ -13,6 +13,7 @@ IFS=',' read -ra API_FILES <<<"$APINAME"
 #####################################################################################
 ##                                K6 installation                                  ##
 #####################################################################################
+ls
 sudo apt-key add ./scripts/bintray.gpg.pub
 echo "deb https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
 echo "Updating ubuntu to get upto date.."
