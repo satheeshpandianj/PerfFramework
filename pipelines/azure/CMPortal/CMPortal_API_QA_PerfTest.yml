@@ -25,5 +25,4 @@ extends:
     project: CMPortal
     apiname: CMVCGetDictionary
     datasource: ContentTest
-    users: 10
     duration: 60s
