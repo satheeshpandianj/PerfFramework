@@ -5,7 +5,7 @@ APINAME=$3
 DATA=$4
 USERS=$5
 DURATION=$6
-FILENAME='perfAPITestScript.js'
+FILENAME='./perfAPITestScript.js'
 #####################################################################################
 ##                                 API FILE SELECTION                              ##
 #####################################################################################
