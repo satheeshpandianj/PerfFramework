@@ -78,4 +78,4 @@ stages:
           echo $(src_users)
           echo $(src_test_duration)
           echo '$(Build.SourcesDirectory)'
-          bash '$(Build.SourcesDirectory)/scripts/perfAPICmdString.sh $(src_env) $(src_project) $(src_api_name) $(src_data_source) $(src_users) $(src_test_duration)
+          bash '$(Build.SourcesDirectory)'/scripts/perfAPICmdString.sh $(src_env) $(src_project) $(src_api_name) $(src_data_source) $(src_users) $(src_test_duration)
