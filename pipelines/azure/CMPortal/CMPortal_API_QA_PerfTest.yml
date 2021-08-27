@@ -1,8 +1,19 @@
+schedules:
+  - cron: "0 12 * * *"
+    displayName: Content Management Portal Staging(QA) daily build
+    branches:
+      include:
+      - master
+    always: true
+    
 trigger:
   branches:
     include:
     - master
-
+  paths:
+    include: 
+     - pipelines/azure/CMPortal/CMPortal_API_QA_PerfTest.yml
+     
 pool:
   vmImage: 'ubuntu-latest'
 
@@ -39,7 +50,7 @@ parameters:
 - name: DEPLOYMENT_TEST_DURATION
   displayName: DEPLOYMENT_TEST_DURATION
   type: string
-  default: 5m
+  default: 1m
   
 stages:
 - stage: PERFORMANCE_TESTING
@@ -58,7 +69,7 @@ stages:
      value: ${{parameters.DEPLOYMENT_TEST_DURATION}}       
 
   jobs:
-  - job: ExecutionEnvironmentSetup
+  - job: Performance Test Execution
   
     steps:
      - script: |
@@ -79,3 +90,4 @@ stages:
           echo $(src_test_duration)
           echo '$(Build.SourcesDirectory)'
           bash '$(Build.SourcesDirectory)'/scripts/perfAPICmdString.sh $(src_env) $(src_project) $(src_api_name) $(src_data_source) $(src_users) $(src_test_duration)
+       displayName: 'Executing the Performance Test'          
