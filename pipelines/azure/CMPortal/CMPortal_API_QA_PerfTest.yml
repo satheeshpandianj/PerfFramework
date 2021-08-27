@@ -1,5 +1,5 @@
 schedules:
-  - cron: "0 12 * * *"
+  - cron: "15 12 * * *"
     displayName: Content Management Portal Staging(QA) daily build
     branches:
       include:
