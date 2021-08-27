@@ -69,7 +69,7 @@ stages:
      value: ${{parameters.DEPLOYMENT_TEST_DURATION}}       
 
   jobs:
-  - job: Performance Test Execution
+  - job: Performance_Test_Execution
   
     steps:
      - script: |
